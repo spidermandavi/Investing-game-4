@@ -147,9 +147,12 @@ function applyDividends() {
       let value = owned*s.price;
 
       let rate=0;
-      if(owned>=1000) rate=0.1;
+      if(owned>=2000) rate=0.2;
+      else if(owned>=1000) rate=0.1;
       else if(owned>=500) rate=0.075;
       else if(owned>=100) rate=0.05;
+      else if(owned>=50) rate=0.025;
+      else if(owned>10) rate=0.005;
 
       p.money += value*rate;
     });
@@ -175,7 +178,7 @@ function randomEvent(){
   if(Math.random() > 0.2) return;
 
   let events = [
-    {text:"Crashed car", value:-500, weight:1},
+    {text:"Crashed car", value:-300, weight:1},
     {text:"Gift", value:200, weight:3},
     {text:"Repairs", value:-100, weight:2},
     {text:"Clothes", value:-50, weight:4},
